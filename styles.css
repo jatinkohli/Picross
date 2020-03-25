@@ -1,0 +1,15 @@
+#initialBox {
+    background-color: white;
+}
+
+td {
+    border-style: solid;
+    border-width: 1px;
+    height: 50px;
+    width: 50px;
+}
+
+table {
+    border-spacing: 0;
+    border: 1px solid;
+}
