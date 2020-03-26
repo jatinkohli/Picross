@@ -1,4 +1,4 @@
-var createGrid = function() {
+createGrid = function() {
     const defaultLength = 10;
     const defaultHeight = 10;
 
@@ -11,7 +11,8 @@ var createGrid = function() {
         str += "<tr>";
 
         for (var box of Array(length).keys()) {
-            str += "<td id=\"initialBox\"></td>";
+            var boxId = row.toString() + box;
+            str += "<td id=\"" + boxId + "\" class=\"initialBox\" onclick=\"changeBox(this.id)\"></td>";
         }
 
         str += "</tr>";
@@ -20,4 +21,8 @@ var createGrid = function() {
     str += "</table>";
 
     document.getElementById("grid").innerHTML = str;
-};
+}
+
+changeBox = function(id) {
+    console.log(id);
+}

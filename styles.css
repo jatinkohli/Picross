@@ -1,12 +1,20 @@
-#initialBox {
+td.initialBox {
     background-color: white;
+}
+
+td.correctBox {
+    background-color: green;
+}
+
+td.incorrectBox {
+    background-color: red;
 }
 
 td {
     border-style: solid;
     border-width: 1px;
-    height: 50px;
-    width: 50px;
+    height: 75px;
+    width: 75px;
 }
 
 table {
