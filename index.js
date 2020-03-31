@@ -1,18 +1,32 @@
-createGrid = function() {
-    const defaultLength = 10;
-    const defaultHeight = 10;
+let solution = new Map();
+let defaultLength = 10;
+let defaultHeight = 10;
 
+createGrid = function() {
     var length = defaultLength;
     var height = defaultHeight;
 
     var str = "<table id=\"grid\">";
+
+    str += "<tr>";
+
+    str += "<td \"class=\"header\"></td>";
+    for (var col of Array(length).keys()) {
+        str += "<td id=\"col" + col + "\" class=\"colHeader\"></td>";
+    }
+
+    str += "</tr>";
     
     for (var row of Array(height).keys()) {
         str += "<tr>";
 
+        str += "<td id=\"row" + row + "\" class=\"rowHeader\"></td>";
+
         for (var box of Array(length).keys()) {
             var boxId = row.toString() + box;
             str += "<td id=\"" + boxId + "\" class=\"initialBox\" onclick=\"changeBox(this.id)\"></td>";
+
+            solution.set(boxId, parseInt((Math.random() * 2)));
         }
 
         str += "</tr>";
@@ -21,8 +35,44 @@ createGrid = function() {
     str += "</table>";
 
     document.getElementById("grid").innerHTML = str;
+
+    for (var row of Array(height).keys()) {
+            document.getElementById("row" + row).innerHTML = getRowHeader(row);
+    }
+}
+
+getRowHeader = function(row) {
+    var length = defaultLength;
+    
+    var str = "";
+
+    console.log(Array(length).keys());
+
+    var consecutive = 0;
+    for (var box of Array(length).keys()) {
+        var boxId = row.toString() + box;
+        var sol = solution.get(boxId);
+        console.log(boxId + " " + sol);
+
+        if (sol)
+            consecutive++;
+        else {
+            if (consecutive != 0)
+                str += consecutive + " ";
+            consecutive = 0;
+        }
+    }
+
+    if (consecutive != 0)
+        str += consecutive;
+
+    return str;
+}
+
+getColHeader = function(col) {
+    
 }
 
 changeBox = function(id) {
-    console.log(id);
+    console.log(id + " " + solution.get(id));
 }
