@@ -37,7 +37,11 @@ createGrid = function() {
     document.getElementById("grid").innerHTML = str;
 
     for (var row of Array(height).keys()) {
-            document.getElementById("row" + row).innerHTML = getRowHeader(row);
+        document.getElementById("row" + row).innerHTML = getRowHeader(row);
+    }
+
+    for (var col of Array(length).keys()) {
+        document.getElementById("col" + col).innerHTML = getColHeader(col);
     }
 }
 
@@ -46,13 +50,10 @@ getRowHeader = function(row) {
     
     var str = "";
 
-    console.log(Array(length).keys());
-
     var consecutive = 0;
     for (var box of Array(length).keys()) {
         var boxId = row.toString() + box;
         var sol = solution.get(boxId);
-        console.log(boxId + " " + sol);
 
         if (sol)
             consecutive++;
@@ -70,7 +71,28 @@ getRowHeader = function(row) {
 }
 
 getColHeader = function(col) {
-    
+    var height = defaultHeight; 
+
+    var str = "";
+
+    var consecutive = 0;
+    for (var row of Array(height).keys()) {
+        var boxId = row.toString() + col;
+        var sol = solution.get(boxId);
+
+        if (sol)
+            consecutive++;
+        else {
+            if (consecutive != 0)
+                str += consecutive + "<br>";
+            consecutive = 0;
+        }
+    }
+
+    if (consecutive != 0)
+        str += consecutive;
+
+    return str;
 }
 
 changeBox = function(id) {
