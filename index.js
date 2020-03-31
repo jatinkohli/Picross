@@ -24,7 +24,7 @@ createGrid = function() {
 
         for (var box of Array(length).keys()) {
             var boxId = row.toString() + box;
-            str += "<td id=\"" + boxId + "\" class=\"initialBox\" onclick=\"changeBox(this.id)\"></td>";
+            str += "<td id=\"" + boxId + "\" class=\"initialBox\" onclick=\"changeBox(this.id, false)\" onauxclick=\"changeBox(this.id, true)\"></td>";
 
             solution.set(boxId, parseInt((Math.random() * 2)));
         }
@@ -95,6 +95,18 @@ getColHeader = function(col) {
     return str;
 }
 
-changeBox = function(id) {
-    console.log(id + " " + solution.get(id));
+changeBox = function(id, isRMB) {
+    if (document.getElementById(id).className == "initialBox") {
+        var correct = isRMB == !solution.get(id);
+        var filledClass = solution.get(id) ? "filled" : "notFilled";
+    
+        if (correct)
+            document.getElementById(id).className = "correctBox " + filledClass;
+        else
+            document.getElementById(id).className = "incorrectBox " + filledClass;
+    }
+}
+
+window.oncontextmenu = (e) => {
+    e.preventDefault();
 }
