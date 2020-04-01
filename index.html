@@ -12,6 +12,24 @@
     <title>Picross</title>
 
     <div>
+        <table id="menu">
+            <td class="menuBox">
+                <label for="numRows"># Rows</label>
+                <input type="text" id="numRows" size="5">
+            </td>
+            <td class="menuBox">
+                <label for="numCols"># Cols</label>
+                <input type="text" id="numCols" size="5">
+            </td>
+            <td class="menuBox">
+                <button onclick="createGrid()">New Game</button>
+            </td>
+        </table>
+    </div>
+
+    <br>
+
+    <div>
         <table id="grid"></table>
     </div>
 </body>

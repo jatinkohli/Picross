@@ -1,10 +1,26 @@
 let solution = new Map();
 let defaultLength = 10;
 let defaultHeight = 10;
+var length;
+var height;
 
 createGrid = function() {
-    var length = defaultLength;
-    var height = defaultHeight;
+    length = document.getElementById("numCols").value;
+    height = document.getElementById("numRows").value;
+
+    if (length === "") {
+        length = defaultLength;
+        document.getElementById("numCols").value = length;
+    } else {
+        length = parseInt(document.getElementById("numCols").value);
+    }
+
+    if (height === "") {
+        height = defaultLength;
+        document.getElementById("numRows").value = length;
+    } else {
+        height = parseInt(document.getElementById("numRows").value);
+    }
 
     var str = "<table id=\"grid\">";
 
@@ -46,8 +62,6 @@ createGrid = function() {
 }
 
 getRowHeader = function(row) {
-    var length = defaultLength;
-    
     var str = "";
 
     var consecutive = 0;
@@ -71,8 +85,6 @@ getRowHeader = function(row) {
 }
 
 getColHeader = function(col) {
-    var height = defaultHeight; 
-
     var str = "";
 
     var consecutive = 0;
