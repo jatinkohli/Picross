@@ -100,11 +100,22 @@ changeBox = function(id, isRMB) {
         var correct = isRMB == !solution.get(id);
         var filledClass = solution.get(id) ? "filled" : "notFilled";
     
-        if (correct)
+        if (correct) 
             document.getElementById(id).className = "correctBox " + filledClass;
-        else
+        else {
             document.getElementById(id).className = "incorrectBox " + filledClass;
+
+            document.getElementById(id).innerHTML = "X";
+        }
     }
+
+    if (document.getElementsByClassName("initialBox").length == 0) {
+        showEndScreen();
+    }
+}
+
+showEndScreen = function() {
+
 }
 
 window.oncontextmenu = (e) => {
