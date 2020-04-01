@@ -59,7 +59,7 @@ getRowHeader = function(row) {
             consecutive++;
         else {
             if (consecutive != 0)
-                str += consecutive + " ";
+                str += consecutive + "&nbsp";
             consecutive = 0;
         }
     }
