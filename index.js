@@ -39,7 +39,7 @@ createGrid = function() {
         str += "<td id=\"row" + row + "\" class=\"rowHeader\"></td>";
 
         for (var box of Array(length).keys()) {
-            var boxId = row.toString() + box;
+            var boxId = row + "-" + box;
             str += "<td id=\"" + boxId + "\" class=\"initialBox\" onclick=\"changeBox(this.id, false)\" onauxclick=\"changeBox(this.id, true)\"></td>";
 
             solution.set(boxId, parseInt((Math.random() * 2)));
@@ -66,7 +66,7 @@ getRowHeader = function(row) {
 
     var consecutive = 0;
     for (var box of Array(length).keys()) {
-        var boxId = row.toString() + box;
+        var boxId = row + "-" + box;
         var sol = solution.get(boxId);
 
         if (sol)
@@ -89,7 +89,7 @@ getColHeader = function(col) {
 
     var consecutive = 0;
     for (var row of Array(height).keys()) {
-        var boxId = row.toString() + col;
+        var boxId = row + "-" + col;
         var sol = solution.get(boxId);
 
         if (sol)
