@@ -26,7 +26,7 @@ createGrid = function() {
 
     str += "<tr>";
 
-    str += "<td \"class=\"header\"></td>";
+    str += "<td \"class=\"header\" onclick=\"window.location.href = 'https://www.youtube.com/watch?v=dQw4w9WgXcQ'\"></td>";
     for (var col of Array(length).keys()) {
         str += "<td id=\"col" + col + "\" class=\"colHeader\"></td>";
     }

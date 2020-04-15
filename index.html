@@ -10,27 +10,29 @@
 
 <body onLoad="createGrid()">
     <title>Picross</title>
+    
+    <div class="wrapper">
+        <div class="center">
+            <table id="grid"></table>
+        </div>
 
-    <div>
-        <table id="menu">
-            <td class="menuBox">
-                <label for="numRows"># Rows</label>
-                <input type="text" id="numRows" size="5">
-            </td>
-            <td class="menuBox">
-                <label for="numCols"># Cols</label>
-                <input type="text" id="numCols" size="5">
-            </td>
-            <td class="menuBox">
-                <button onclick="createGrid()">New Game</button>
-            </td>
-        </table>
-    </div>
+        <br class="center">
 
-    <br>
-
-    <div>
-        <table id="grid"></table>
+        <div class="center">
+            <table id="menu">
+                <td class="menuBox">
+                    <label for="numRows"># Rows</label>
+                    <input type="text" id="numRows" size="5">
+                </td>
+                <td class="menuBox">
+                    <label for="numCols"># Cols</label>
+                    <input type="text" id="numCols" size="5">
+                </td>
+                <td class="menuBox">
+                    <button onclick="createGrid()">New Game</button>
+                </td>
+            </table>
+        </div>
     </div>
 </body>
 

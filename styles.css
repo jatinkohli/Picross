@@ -1,3 +1,7 @@
+body {
+    background-color: black;
+}
+
 td {
     border-style: solid;
     border-width: 1px;
@@ -7,6 +11,7 @@ td {
     min-width: 50px;
     min-height: 50px;
     text-align: center;
+    background-color: rgb(73, 69, 69);
 }
 
 td.initialBox {
@@ -51,6 +56,7 @@ td.rowHeader {
     padding-left: 5px;
     padding-right: 5px;
     border-right-color: black;
+    border-left: none;
 }
 
 td.colHeader {
@@ -60,18 +66,36 @@ td.colHeader {
     padding-top: 5px;
     padding-bottom: 5px;
     border-bottom-color: black;
+    border-top: none;
 }
 
 td.menuBox {
     border-style: none;
     border-width: 0px;
+    background-color: rgb(73, 69, 69);
+    color: white;
 }
 
 table {
     border-spacing: 0;
-    border: 1px solid;
+    border: 1px solid white;
+}
+
+
+.wrapper {
+    text-align: center;
+}
+
+.center {
+    display: inline-block;
+    margin-bottom: 30px;
 }
 
 input {
     text-align: center;
+}
+
+td.header {
+    border-color: black;
+    background-color: chartreuse;
 }
