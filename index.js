@@ -136,7 +136,7 @@ changeBox = function(id, isRMB) {
         document.getElementById("row" + id.substring(0,1)).className += " complete";
     }
     if (isRowOrColComplete(id.substring(2,3), false)) {
-        console.log("column complete");
+        document.getElementById("col" + id.substring(2,3)).className += " complete";
     }
 
     if (document.getElementsByClassName("initialBox").length == 0) {
