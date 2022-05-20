@@ -1,3 +1,4 @@
+<!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -5,12 +6,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <script src="index.js"></script>
+    <script src="solver.js"></script>
     <link rel="stylesheet" href="styles.css">
 </head>
 
 <body onLoad="createGrid()">
     <title>Picross</title>
-    
+
     <div class="wrapper">
         <div class="center">
             <table id="grid"></table>
@@ -20,6 +22,7 @@
 
         <div class="center">
             <table id="menu">
+                <p>:)</p>
                 <td class="menuBox">
                     <label for="numRows"># Rows</label>
                     <input type="text" id="numRows" size="5">
@@ -30,6 +33,21 @@
                 </td>
                 <td class="menuBox">
                     <button onclick="createGrid()">New Game</button>
+                </td>
+            </table>
+        </div>
+
+        <div class="center">
+            <p class="whiteFont">Hints/Help</p>
+            <table id="hintsMenu">
+                <td class="menuBox">
+                    <button onClick="firstPass()">First Pass</button>
+                </td>
+                <td class="menuBox">
+                    <button onclick="">TODO</button>
+                </td>
+                <td class="menuBox">
+                    <button onclick="">Complete</button>
                 </td>
             </table>
         </div>

@@ -12,6 +12,12 @@ td {
     min-height: 50px;
     text-align: center;
     background-color: rgb(73, 69, 69);
+    color: white;
+}
+
+td.complete {
+    color: gray;
+    text-decoration: line-through;
 }
 
 td.initialBox {
@@ -34,38 +40,36 @@ td.notFilled {
 }
 
 td.leftBorder {
-    border-left-color: black;
+    border-left-color: rgb(95, 95, 95);
 }
 
 td.rightBorder {
-    border-right-color: black;
+    border-right-color: rgb(95, 95, 95);
 }
 
 td.topBorder {
-    border-top-color: black;
+    border-top-color: rgb(95, 95, 95);
 }
 
 td.bottomBorder {
-    border-bottom-color: black;
+    border-bottom-color: rgb(95, 95, 95);
 }
 
 td.rowHeader {
     background-color: rgb(73, 69, 69);
     font-family: "Comic Sans MS", cursive, sans-serif;
-    color: white;
     padding-left: 5px;
     padding-right: 5px;
-    border-right-color: black;
+    border-right-color: white;
     border-left: none;
 }
 
 td.colHeader {
     background-color: rgb(73, 69, 69);
     font-family: "Comic Sans MS", cursive, sans-serif;
-    color: white;
     padding-top: 5px;
     padding-bottom: 5px;
-    border-bottom-color: black;
+    border-bottom-color: white;
     border-top: none;
 }
 
@@ -89,6 +93,7 @@ table {
 .center {
     display: inline-block;
     margin-bottom: 30px;
+    font-family: "Comic Sans MS", cursive, sans-serif;
 }
 
 input {
@@ -98,4 +103,8 @@ input {
 td.header {
     border-color: black;
     background-color: chartreuse;
+}
+
+.whiteFont {
+    color: white;
 }
