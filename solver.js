@@ -14,13 +14,11 @@ firstPass = function() {
                     vals.splice(i, 1);
                 }
             }
-            console.log(vals);
             
             var sum = vals.length - 1;
             for (var i = 0; i < vals.length; i++) {
                 sum += parseInt(vals[i]);
             }
-            console.log(sum)
             
             var runningSum = 0;
             for (var val in vals) {
@@ -29,13 +27,17 @@ firstPass = function() {
                 if (bounds - sum < num) {
                     for (var i = 0; i < num - bounds + sum; i++) {
                         var id = num - i - 1 + runningSum;
-                        if (document.getElementById(isRow ? index + "-" + id : id + "-" + index).className == "initialBox")
-                            console.log(isRow + "-" + index + "-" + num);
                         changeBox(isRow ? index + "-" + id : id + "-" + index, false);
                     }
                 }
 
                 runningSum += num + 1;
+            }
+
+            if (sum == bounds || sum == -1) {
+                for (var i = 0; i < bounds; i++) {
+                    changeBox(isRow ? index + "-" + i : i + "-" + index, true);
+                }
             }
         }
     }

@@ -132,7 +132,6 @@ changeBox = function(id, isRMB) {
         document.getElementById(id).className = classString;
     }
 
-    console.log(id);
     if (isRowOrColComplete(id.substring(0,id.indexOf("-")), true)) {
         document.getElementById("row" + id.substring(0,id.indexOf("-"))).className += " complete";
     }
@@ -149,11 +148,8 @@ isRowOrColComplete = function(index, isRow) {
     var complete = true;
     var bounds = isRow ? width : height;
 
-    console.log("Index: " + index);
-
     for (var i = 0; i < bounds; i++) {
         var id = isRow ? (index + "-" + i) : (i + "-" + index);
-        console.log("ID: " + id);
 
         if(document.getElementById(id).className.indexOf("initialBox") === 0) {
             complete = false;
