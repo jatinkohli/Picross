@@ -1,6 +1,6 @@
 let solution = new Map();
-let defaultWidth = 10;
-let defaultHeight = 10;
+let defaultWidth = 15;
+let defaultHeight = 15;
 var width;
 var height;
 
@@ -132,11 +132,12 @@ changeBox = function(id, isRMB) {
         document.getElementById(id).className = classString;
     }
 
-    if (isRowOrColComplete(id.substring(0,1), true)) {
-        document.getElementById("row" + id.substring(0,1)).className += " complete";
+    console.log(id);
+    if (isRowOrColComplete(id.substring(0,id.indexOf("-")), true)) {
+        document.getElementById("row" + id.substring(0,id.indexOf("-"))).className += " complete";
     }
-    if (isRowOrColComplete(id.substring(2,3), false)) {
-        document.getElementById("col" + id.substring(2,3)).className += " complete";
+    if (isRowOrColComplete(id.substring(id.indexOf("-") + 1,id.length), false)) {
+        document.getElementById("col" + id.substring(id.indexOf("-") + 1, id.length)).className += " complete";
     }
 
     if (document.getElementsByClassName("initialBox").length == 0) {
@@ -148,8 +149,11 @@ isRowOrColComplete = function(index, isRow) {
     var complete = true;
     var bounds = isRow ? width : height;
 
+    console.log("Index: " + index);
+
     for (var i = 0; i < bounds; i++) {
-        var id = isRow ? index + "-" + i : i + "-" + index;
+        var id = isRow ? (index + "-" + i) : (i + "-" + index);
+        console.log("ID: " + id);
 
         if(document.getElementById(id).className.indexOf("initialBox") === 0) {
             complete = false;
